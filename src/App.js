@@ -68,7 +68,7 @@ const skins = [
   { name: 'UMP-45 | Neo-Noir', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ump-45-neo-noir.png' },
   { name: 'Glock-18| Shinobu', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/glock-18-shinobu.png' },
   { name: 'Ak-47 | Searing Rage', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ak-47-searing-rage.png' },
-  { name: 'UMP-45 | K.O Factory', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ump-45-ko-factory.png' },
+  { name: 'UMP-45 | K.O Factory', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ump-45-k-o-factory.png' },
 
   // Ancient (Red) - 6 skins
   { name: 'AK-47 | Inheritance', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/ak-47-inheritance.png' },
