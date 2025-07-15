@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
+// Define PUBLIC_URL with a fallback that explicitly includes the repository name.
+// This ensures the correct base path for GitHub Pages subdirectory, even if
+// process.env.PUBLIC_URL is not correctly set by the build environment or during local preview.
+const PUBLIC_URL = (typeof process !== 'undefined' && process.env.PUBLIC_URL)
+  ? process.env.PUBLIC_URL
+  : 'https://moblibarat.github.io/lootloop-frontend'; // Explicitly set the full base URL for robustness
+
 // Define the skins with their rarity and a placeholder image
 // New Rarity Tiers and Weights (approximate percentages for a total sum of ~98450):
 // Rare (Dark Blue): ~70% (3300 weight per skin * 21 skins = 69300)
@@ -10,69 +17,69 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 // Total sum of weights for calculation: 98450
 const skins = [
   // Rare (Dark Blue) - 21 skins
-  // WICHTIG: Ersetze 'DATEINAME_DES_BILDES.png' durch den tatsächlichen Dateinamen deines Bildes im Ordner public/skins/
-  { name: 'Dual Berettas | Hideout', rarity: 'Rare', weight: 3300, image: '/skins/Dual Berettas Hideout.png' },
-  { name: 'Nova | Dark Sigil', rarity: 'Rare', weight: 3300, image: '/skins/Nova Dark Sigil.png' },
-  { name: 'MAC-10 | Light Box', rarity: 'Rare', weight: 3300, image: '/skins/MAC-10 Light Box.png' },
-  { name: 'UMP-45 | Motorized', rarity: 'Rare', weight: 3300, image: '/skins/UMP-45 Motorized.png' },
-  { name: 'XM1014 | Irezumi', rarity: 'Rare', weight: 3300, image: '/skins/XM1014 Irezumi.png' },
-  { name: 'SSG 08 | Dezastre', rarity: 'Rare', weight: 3300, image: '/skins/SSG 08 Dezastre.png' },
-  { name: 'Tec-9 | Slag', rarity: 'Rare', weight: 3300, image: '/skins/Tec-9 Slag.png' },
-  { name: 'Desert Eagle | Calligraffiti', rarity: 'Rare', weight: 3300, image: '/skins/Desert Eagle Calligraffiti.png' },
-  { name: 'SCAR-20 | Trail Blazer', rarity: 'Rare', weight: 3300, image: '/skins/SCAR-20 Trail Blazer.png' },
-  { name: 'R8 Revolver | Tango', rarity: 'Rare', weight: 3300, image: '/skins/R8 Revolver Tango.png' },
-  { name: 'USP-S | 27', rarity: 'Rare', weight: 3300, image: '/skins/USP-S 27.png' },
-  { name: 'AUG | Luxe Trim', rarity: 'Rare', weight: 3300, image: '/skins/AUG Luxe Trim.png' },
-  { name: 'MP5-SD | Statics', rarity: 'Rare', weight: 3300, image: '/skins/MP5-SD Statics.png' },
-  { name: 'M249 | Hypnosis', rarity: 'Rare', weight: 3300, image: '/skins/M249 Hypnosis.png' },
-  { name: 'Usp-S | PC-GRN', rarity: 'Rare', weight: 3300, image: '/skins/USP-S PC-GRN.png' },
-  { name: 'M4A4| Choppa', rarity: 'Rare', weight: 3300, image: '/skins/M4A4 Choppa.png' },
-  { name: 'SSG 08 | Memorial', rarity: 'Rare', weight: 3300, image: '/skins/SSG 08 Memorial.png' },
-  { name: 'Mp9 | Nexus', rarity: 'Rare', weight: 3300, image: '/skins/Mp9 Nexus.png' },
-  { name: 'P2000 | Sure Grip', rarity: 'Rare', weight: 3300, image: '/skins/P2000 Sure Grip.png' },
-  { name: 'XM1014 | Mockingbird', rarity: 'Rare', weight: 3300, image: '/skins/XM1014 Mockingbird.png' },
-  { name: 'MAG-7| Resupply', rarity: 'Rare', weight: 3300, image: '/skins/MAG-7 Resupply.png' },
+  // WICHTIG: Die Bildpfade wurden an die empfohlene Namenskonvention angepasst:
+  // Nur Kleinbuchstaben, Zahlen und Bindestriche. Stelle sicher, dass deine lokalen Dateien
+  // im Ordner public/skins/ exakt so benannt sind!
+  { name: 'Dual Berettas | Hideout', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/dual-berettas-hideout.png' },
+  { name: 'Nova | Dark Sigil', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/nova-dark-sigil.png' },
+  { name: 'MAC-10 | Light Box', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/mac-10-light-box.png' },
+  { name: 'UMP-45 | Motorized', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/ump-45-motorized.png' },
+  { name: 'XM1014 | Irezumi', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/xm1014-irezumi.png' },
+  { name: 'SSG 08 | Dezastre', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/ssg-08-dezastre.png' },
+  { name: 'Tec-9 | Slag', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/tec-9-slag.png' },
+  { name: 'Desert Eagle | Calligraffiti', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/desert-eagle-calligraffiti.png' },
+  { name: 'SCAR-20 | Trail Blazer', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/scar-20-trail-blazer.png' },
+  { name: 'R8 Revolver | Tango', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/r8-revolver-tango.png' },
+  { name: 'USP-S | 27', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/usp-s-27.png' },
+  { name: 'AUG | Luxe Trim', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/aug-luxe-trim.png' },
+  { name: 'MP5-SD | Statics', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/mp5-sd-statics.png' },
+  { name: 'M249 | Hypnosis', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/m249-hypnosis.png' },
+  { name: 'Usp-S | PC-GRN', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/usp-s-pc-grn.png' },
+  { name: 'M4A4| Choppa', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/m4a4-choppa.png' },
+  { name: 'SSG 08 | Memorial', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/ssg-08-memorial.png' },
+  { name: 'Mp9 | Nexus', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/mp9-nexus.png' },
+  { name: 'P2000 | Sure Grip', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/p2000-sure-grip.png' },
+  { name: 'XM1014 | Mockingbird', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/xm1014-mockingbird.png' },
+  { name: 'MAG-7| Resupply', rarity: 'Rare', weight: 3300, image: PUBLIC_URL + '/skins/mag-7-resupply.png' },
 
   // Mythic (Purple) - 15 skins
-  { name: 'Glock-18 | Block-18', rarity: 'Mythic', weight: 1300, image: '/skins/Glock-18 Block-18.png' },
-  { name: 'Sawed-Off | Analog input', rarity: 'Mythic', weight: 1300, image: '/skins/Sawed-Off Analog input.png' },
-  { name: 'M4A4 | Etch Lord', rarity: 'Mythic', weight: 1300, image: '/skins/M4A4 Etch Lord.png' },
-  { name: 'MP7 | Just Smile', rarity: 'Mythic', weight: 1300, image: '/skins/MP7 Just Smile.png' },
-  { name: 'Five-SeveN | Hybrid', rarity: 'Mythic', weight: 1300, image: '/skins/Five-SeveN Hybrid.png' },
-  { name: 'SSG 08 | Rapid Transit', rarity: 'Mythic', weight: 1300, image: '/skins/SSG 08 Rapid Transit.png' },
-  { name: 'MAC-10 | Saiba Oni', rarity: 'Mythic', weight: 1300, image: '/skins/MAC-10 Saiba Oni.png' },
-  { name: 'Dual Berettas | Hydro Strike', rarity: 'Mythic', weight: 1300, image: '/skins/Dual Berettas Hydro Strike.png' },
-  { name: 'M4A4 | Turbine', rarity: 'Mythic', weight: 1300, image: '/skins/M4A4 Turbine.png' },
-  { name: 'P90 | Randy Rush', rarity: 'Mythic', weight: 1300, image: '/skins/P90 Randy Rush.png' },
-  { name: 'Desert Eagle | Serpent Strike', rarity: 'Mythic', weight: 1300, image: '/skins/Desert Eagle Serpent Strike.png' },
-  { name: 'Zeus x27 | Tosai', rarity: 'Mythic', weight: 1300, image: '/skins/Zeus x27 Tosai.png' },
-  { name: 'Galil AR | Control', rarity: 'Mythic', weight: 1300, image: '/skins/Galil AR Control.png' },
-  { name: 'P90 | Wave Breaker', rarity: 'Mythic', weight: 1300, image: '/skins/P90 Wave Breaker.png' },
-  { name: 'Nova | Rising Sun', rarity: 'Mythic', weight: 1300, image: '/skins/Nova Rising Sun.png' },
+  { name: 'Glock-18 | Block-18', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/glock-18-block-18.png' },
+  { name: 'Sawed-Off | Analog input', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/sawed-off-analog-input.png' },
+  { name: 'M4A4 | Etch Lord', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/m4a4-etch-lord.png' },
+  { name: 'MP7 | Just Smile', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/mp7-just-smile.png' },
+  { name: 'Five-SeveN | Hybrid', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/five-seven-hybrid.png' },
+  { name: 'SSG 08 | Rapid Transit', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/ssg-08-rapid-transit.png' },
+  { name: 'MAC-10 | Saiba Oni', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/mac-10-saiba-oni.png' },
+  { name: 'Dual Berettas | Hydro Strike', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/dual-berettas-hydro-strike.png' },
+  { name: 'M4A4 | Turbine', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/m4a4-turbine.png' },
+  { name: 'P90 | Randy Rush', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/p90-randy-rush.png' },
+  { name: 'Desert Eagle | Serpent Strike', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/desert-eagle-serpent-strike.png' },
+  { name: 'Zeus x27 | Tosai', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/zeus-x27-tosai.png' },
+  { name: 'Galil AR | Control', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/galil-ar-control.png' },
+  { name: 'P90 | Wave Breaker', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/p90-wave-breaker.png' },
+  { name: 'Nova | Rising Sun', rarity: 'Mythic', weight: 1300, image: PUBLIC_URL + '/skins/nova-rising-sun.png' },
 
   // Legendary (Pink) - 9 skins
-  { name: 'M4A1-S | Black Lotus', rarity: 'Legendary', weight: 750, image: '/skins/M4A1-S Black Lotus.png' },
-  { name: 'Zeus x27 | Olympus', rarity: 'Legendary', weight: 750, image: '/skins/Zeus x27 Olympus.png' },
-  { name: 'USP-S | Jawbreaker', rarity: 'Legendary', weight: 750, image: '/skins/USP-S Jawbreaker.png' },
-  { name: 'Ak-47 | The Outsiders', rarity: 'Legendary', weight: 750, image: '/skins/Ak-47 The Outsiders.png' },
-  { name: 'P250 | Epicenter', rarity: 'Legendary', weight: 750, image: '/skins/P250 Epicenter.png' },
-  { name: 'UMP-45 | Neo-Noir', rarity: 'Legendary', weight: 750, image: '/skins/UMP-45 Neo-Noir.png' },
-  { name: 'Glock-18| Shinobu', rarity: 'Legendary', weight: 750, image: '/skins/Glock-18 Shinobu.png' },
-  { name: 'Ak-47 | Searing Rage', rarity: 'Legendary', weight: 750, image: '/skins/Ak-47 Searing Rage.png' },
-  { name: 'UMP-45 | K.O Factory', rarity: 'Legendary', weight: 750, image: '/skins/UMP-45 K.O Factory.png' },
+  { name: 'M4A1-S | Black Lotus', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/m4a1-s-black-lotus.png' },
+  { name: 'Zeus x27 | Olympus', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/zeus-x27-olympus.png' },
+  { name: 'USP-S | Jawbreaker', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/usp-s-jawbreaker.png' },
+  { name: 'Ak-47 | The Outsiders', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ak-47-the-outsiders.png' },
+  { name: 'P250 | Epicenter', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/p250-epicenter.png' },
+  { name: 'UMP-45 | Neo-Noir', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ump-45-neo-noir.png' },
+  { name: 'Glock-18| Shinobu', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/glock-18-shinobu.png' },
+  { name: 'Ak-47 | Searing Rage', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ak-47-searing-rage.png' },
+  { name: 'UMP-45 | K.O Factory', rarity: 'Legendary', weight: 750, image: PUBLIC_URL + '/skins/ump-45-ko-factory.png' },
 
   // Ancient (Red) - 6 skins
-  { name: 'AK-47 | Inheritance', rarity: 'Ancient', weight: 400, image: '/skins/AK-47 Inheritance.png' },
-  { name: 'AWP | Chrome Cannon', rarity: 'Ancient', weight: 400, image: '/skins/AWP Chrome Cannon.png' },
-  { name: 'M4A1-S | Vaporwave', rarity: 'Ancient', weight: 400, image: '/skins/M4A1-S Vaporwave.png' },
-  { name: 'Glock-18 | Gold Toof', rarity: 'Ancient', weight: 400, image: '/skins/Glock-18 Gold Toof.png' },
-  { name: 'AWP | Printstream', rarity: 'Ancient', weight: 400, image: '/skins/AWP Printstream.png' },
-  { name: 'FAMAS | Bad Trip', rarity: 'Ancient', weight: 400, image: '/skins/FAMAS Bad Trip.png' },
+  { name: 'AK-47 | Inheritance', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/ak-47-inheritance.png' },
+  { name: 'AWP | Chrome Cannon', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/awp-chrome-cannon.png' },
+  { name: 'M4A1-S | Vaporwave', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/m4a1-s-vaporwave.png' },
+  { name: 'Glock-18 | Gold Toof', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/glock-18-gold-toof.png' },
+  { name: 'AWP | Printstream', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/awp-printstream.png' },
+  { name: 'FAMAS | Bad Trip', rarity: 'Ancient', weight: 400, image: PUBLIC_URL + '/skins/famas-bad-trip.png' },
 
   // Special Item (Gold) - 1 skin
-  // Gold drop chance auf ursprünglichen Wert (500) zurückgesetzt.
-  // Bild auf 'Gold CS2.png' und Name auf "GoldGoldGold" beibehalten.
-  { name: 'GoldGoldGold', rarity: 'Special Item', weight: 500, image: '/skins/Gold CS2.png' },
+  { name: 'GoldGoldGold', rarity: 'Special Item', weight: 500, image: PUBLIC_URL + '/skins/gold-cs2.png' },
 ];
 
 // Define possible conditions for skins
@@ -202,13 +209,13 @@ const App = () => {
   const [winningSkin, setWinningSkin] = useState(null);
   const [displaySkins, setDisplaySkins] = useState([]);
   const [translateX, setTranslateX] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [collectedKeysCount, setCollectedKeysCount] = useState(0); // State for collected keys count
   // eslint-disable-next-line no-unused-vars
   const [coins, setCoins] = useState(0); // State for total coins (logic remains, but no visual display)
   const [showInputField, setShowInputField] = useState(false); // State for input field modal visibility
   const [inputValue, setInputValue] = useState(''); // State for input field value
   const [showAnnouncementModal, setShowAnnouncementModal] = useState(true); // State for announcement modal visibility, true to show on load
+  // Video Ad state and related logic removed as requested
 
   const spinnerRef = useRef(null);
   const itemWidth = 158; // Width of each item (150px image + 2*4px margin = 158px)
@@ -282,8 +289,8 @@ const App = () => {
           addCoins(value); // Münzen für den gezogenen Skin hinzufügen
           console.log(`Gewonnen: ${chosenWinningSkin.name} (${chosenWinningSkin.condition || 'Kein Zustand'}) - Wert: ${value} Münzen`);
 
-          // Wenn der Gewinner-Skin die 'Karambit | Fade' (jetzt Gold Box) ist, Eingabefeld anzeigen
-          if (chosenWinningSkin.name === 'GoldGoldGold') { // Name hier angepasst
+          // Wenn der Gewinner-Skin die 'GoldGoldGold' ist, Eingabefeld anzeigen
+          if (chosenWinningSkin.name === 'GoldGoldGold') {
             setShowInputField(true); // Eingabefeld-Modal anzeigen
           }
         }
@@ -337,11 +344,6 @@ const App = () => {
     setShowInputField(false);
   };
 
-  // Funktion zum Hinzufügen von 15 Schlüsseln
-  const addFifteenKeys = () => {
-    setCollectedKeysCount(prevCoins => prevCoins + 15);
-  };
-
   // Effekt zur automatischen Schlüsselgewinnung durch kreisförmige Animation alle 30 Sekunden
   useEffect(() => {
     const autoKeyGainInterval = setInterval(() => {
@@ -374,12 +376,13 @@ const App = () => {
   return (
     <div
       className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4 font-inter relative overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: `url('/skins/cs2_dust2_map_4k_gaming.jpg')`, // Beispiel: Hintergrundbild auch aus public/skins/
-        backgroundSize: 'cover', // Stellt sicher, dass das Bild den gesamten Bereich abdeckt
-        backgroundPosition: 'center', // Zentriert das Bild
-        backgroundRepeat: 'no-repeat', // Verhindert Wiederholung
-      }}
+      // Hintergrundbild wurde entfernt
+      // style={{
+      //   backgroundImage: `url(${PUBLIC_URL}/skins/cs2-dust2-map-4k-gaming.jpg)`,
+      //   backgroundSize: 'cover',
+      //   backgroundPosition: 'center',
+      //   backgroundRepeat: 'no-repeat',
+      // }}
     >
       {/* Overlay für bessere Lesbarkeit */}
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -399,6 +402,27 @@ const App = () => {
         
         Viel Spaß beim Öffnen der Kisten und viel Glück!"
       />
+
+      {/* AdSense Banner Ad Placeholder (Oben) */}
+      {/* Ersetze data-ad-client und data-ad-slot durch deine echten AdSense-Werte */}
+      <div className="mt-4 mb-8 w-full max-w-4xl flex items-center justify-center z-10">
+        <ins className="adsbygoogle"
+             style={{ display: 'block', width: '728px', height: '90px' }} // Beispielgröße
+             data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+             data-ad-slot="YOUR_ADSENSE_AD_SLOT_ID_BANNER">
+        </ins>
+      </div>
+      {/* Initialisiere AdSense-Anzeigen nach dem Rendern */}
+      {useEffect(() => {
+        try {
+          if (window.adsbygoogle && window.adsbygoogle.push) {
+            window.adsbygoogle.push({});
+          }
+        } catch (e) {
+          console.error("AdSense-Fehler:", e);
+        }
+      }, [])}
+
 
       {/* Animierter Kreis mit Schlüsselzähler */}
       <div className="relative w-48 h-48 mb-8 flex items-center justify-center z-10">
@@ -436,14 +460,10 @@ const App = () => {
                   className="inline-block flex-shrink-0 w-[150px] h-[100px] bg-gray-600 m-1 rounded-md shadow-md flex flex-col items-center justify-center p-2 border border-gray-500"
                 >
                   <img
-                    src={skin.image}
+                    src={skin.image} // Pfad wurde mit PUBLIC_URL angepasst
                     alt={skin.name}
-                    // Animation nur anwenden, wenn sich nicht dreht UND dies der Gewinner-Skin am Zielindex ist
-                    className={`w-24 h-16 object-cover rounded-sm mb-1
-                                ${!spinning && index === preRollCount ? 'animate-win-scale' : ''}
-                              `}
-                    // Robuster Fallback, falls dein Bild nicht lädt
-                    onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/150x100/333333/FFFFFF?text=Error`; }}
+                    // Entferne das onError-Attribut, um Platzhalter zu vermeiden
+                    // onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/150x100/333333/FFFFFF?text=Error`; }}
                   />
                   <p className={`text-xs font-semibold truncate w-full text-center ${getRarityColor(skin.rarity)}`}>
                     {skin.name}
@@ -463,13 +483,13 @@ const App = () => {
         {/* Buttons unter dem Spinner / Eingabefeld */}
         <div className="flex flex-col items-center gap-4 mt-8">
           <div className="flex items-center justify-center gap-4 w-full">
-            {/* New +15 Keys Button */}
-            <button
+            {/* Der +15 Schlüssel Button (Video Ad) wurde entfernt */}
+            {/* <button
               onClick={addFifteenKeys}
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
             >
-              🔑 +15 Schlüssel
-            </button>
+              🔑 +15 Schlüssel (Video Ad)
+            </button> */}
 
             <button
               onClick={handleOpenCaseButtonClick} // Startet jetzt direkt den Spin
@@ -497,8 +517,12 @@ const App = () => {
         setInputValue={setInputValue}
       />
 
-      {/* AdSense In-Article Ad Placeholder (Unten) */}
-      {/* Der AdSense-Code ist vollständig entfernt worden. */}
+      {/* Video Ad Modal wurde entfernt */}
+      {/* <VideoAdModal
+        isOpen={showAd}
+        onClose={() => setShowAd(false)}
+        onAdComplete={onAdComplete}
+      /> */}
 
       {/* Der Style-Block bleibt hier, da er spezifische Animationen enthält, die mit React-Komponenten interagieren. */}
       <style>
