@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 // process.env.PUBLIC_URL is not correctly set by the build environment or during local preview.
 const PUBLIC_URL = (typeof process !== 'undefined' && process.env.PUBLIC_URL)
   ? process.env.PUBLIC_URL
-  : 'https://moblibarat.github.io/lootloop-frontend'; // Explicitly set the full base URL for robustness
+  : 'https://moblibarat.github.io'; // Explicitly set the full base URL for robustness
 
 // Define the skins with their rarity and a placeholder image
 // New Rarity Tiers and Weights (approximate percentages for a total sum of ~98450):
