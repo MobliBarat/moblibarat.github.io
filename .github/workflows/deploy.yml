@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages (Self-hosted)
+
+on:
+  push:
+    branches:
+      - main # Oder 'master', je nachdem, welchen Branch du für deine Quelle verwendest
+
+jobs:
+  build-and-deploy:
+    # Verwende hier deinen Self-hosted Runner
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Oder die Node.js-Version, die du lokal verwendest (z.B. '20')
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          # Wenn deine GitHub Pages-Seite ein Projekt-Repo ist (moblibarat.github.io/lootloop-frontend/),
+          # müsstest du hier den Branch 'gh-pages' angeben.
+          # Da du aber auf moblibarat.github.io umbenannt hast, ist 'gh-pages' nicht mehr nötig,
+          # da der Standard-Branch (main/master) verwendet wird.
+          # Wenn du doch den gh-pages Branch als Source in den Pages-Einstellungen hast,
+          # dann füge publish_branch: gh-pages hinzu.
+          # publish_branch: gh-pages # <-- Nur wenn du den gh-pages Branch als Source in den Pages-Einstellungen hast
