@@ -19,8 +19,10 @@ jobs:
           node-version: '18' # Oder die Node.js-Version, die du lokal verwendest (z.B. '20')
 
       - name: Install dependencies
-        # Verwende npm ci für eine saubere Installation in CI/CD-Umgebungen
-        run: npm ci
+        run: npm install # Wieder npm install, da npm ci manchmal zu streng sein kann
+
+      - name: Ensure react-scripts is available
+        run: npm install react-scripts@latest # Füge DIESEN SCHRITT HINZU!
 
       - name: Build React App
         run: npm run build
