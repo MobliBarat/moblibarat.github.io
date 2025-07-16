@@ -30,6 +30,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          publish_branch: main
           # Wenn deine GitHub Pages-Seite ein Projekt-Repo ist (moblibarat.github.io/lootloop-frontend/),
           # müsstest du hier den Branch 'gh-pages' angeben.
           # Da du aber auf moblibarat.github.io umbenannt hast, ist 'gh-pages' nicht mehr nötig,
