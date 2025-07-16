@@ -2,7 +2,7 @@
   "name": "lootloop-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://moblibarat.github.io/lootloop-frontend",
+  "homepage": "https://moblibarat.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
