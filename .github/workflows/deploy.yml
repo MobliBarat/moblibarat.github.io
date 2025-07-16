@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages (Self-hosted)
 on:
   push:
     branches:
-      - master # Oder 'master', je nachdem, welchen Branch du für deine Quelle verwendest
+      - main # Oder 'master', je nachdem, welchen Branch du für deine Quelle verwendest
 
 jobs:
   build-and-deploy:
