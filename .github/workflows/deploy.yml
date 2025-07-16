@@ -7,7 +7,6 @@ on:
 
 jobs:
   build-and-deploy:
-    # Verwende hier deinen Self-hosted Runner
     runs-on: self-hosted
 
     steps:
@@ -20,7 +19,8 @@ jobs:
           node-version: '18' # Oder die Node.js-Version, die du lokal verwendest (z.B. '20')
 
       - name: Install dependencies
-        run: npm install
+        # Verwende npm ci für eine saubere Installation in CI/CD-Umgebungen
+        run: npm ci
 
       - name: Build React App
         run: npm run build
@@ -30,12 +30,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          #publish_branch: main
+          publish_branch: gh-pages
           force_orphan: true
-          # Wenn deine GitHub Pages-Seite ein Projekt-Repo ist (moblibarat.github.io/lootloop-frontend/),
-          # müsstest du hier den Branch 'gh-pages' angeben.
-          # Da du aber auf moblibarat.github.io umbenannt hast, ist 'gh-pages' nicht mehr nötig,
-          # da der Standard-Branch (main/master) verwendet wird.
-          # Wenn du doch den gh-pages Branch als Source in den Pages-Einstellungen hast,
-          # dann füge publish_branch: gh-pages hinzu.
-          # publish_branch: gh-pages # <-- Nur wenn du den gh-pages Branch als Source in den Pages-Einstellungen hast
