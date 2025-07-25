@@ -45,28 +45,28 @@ const teamLogos = {
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
 const bundesliga1Games = [
-    { id: 'b1-1', team1: 'Bayern', team2: 'Werder' }, // team2 ist 'Werder'
-    { id: 'b1-2', team1: 'Dortmund', team2: 'Schalke' },
-    { id: 'b1-3', team1: 'Leipzig', team2: 'Union Berlin' },
-    { id: 'b1-4', team1: 'Leverkusen', team2: 'Frankfurt' },
-    { id: 'b1-5', team1: 'Stuttgart', team2: 'Freiburg' },
-    { id: 'b1-6', team1: 'Köln', team2: 'Gladbach' },
-    { id: 'b1-7', team1: 'Wolfsburg', team2: 'Hoffenheim' },
-    { id: 'b1-8', team1: 'Mainz', team2: 'Augsburg' },
-    { id: 'b1-9', team1: 'Bochum', team2: 'Heidenheim' },
+    { id: 'b1-1', team1: 'Bayern', team2: 'RB Leipzig' }, // team2 ist 'Werder'
+    { id: 'b1-2', team1: 'Leverkusen', team2: 'Hoffenheim' },
+    { id: 'b1-3', team1: 'Union Berlin', team2: 'VfB Stuttgart' },
+    { id: 'b1-4', team1: 'Freiburg', team2: 'Augsburg' },
+    { id: 'b1-5', team1: 'Heidenheim', team2: 'Wolfsburg' },
+    { id: 'b1-6', team1: 'Eintracht Frankfurt', team2: 'Werder Bremen' },
+    { id: 'b1-7', team1: 'St. Pauli', team2: 'Dortmund' },
+    { id: 'b1-8', team1: 'Mainz', team2: 'Köln' },
+    { id: 'b1-9', team1: 'Mönchengladbach', team2: 'HSV' },
 ];
 
 // Beispielhafte Liste von 2. Bundesliga Spielen (9 Spiele, 18 Teams)
 const bundesliga2Games = [
-    { id: 'b2-1', team1: 'Hertha', team2: 'HSV' },
-    { id: 'b2-2', team1: 'Düsseldorf', team2: 'Hannover' },
-    { id: 'b2-3', team1: 'Nürnberg', team2: 'Kaiserslautern' },
-    { id: 'b2-4', team1: 'Paderborn', team2: 'Karlsruhe' },
-    { id: 'b2-5', team1: 'Kiel', team2: 'St. Pauli' },
-    { id: 'b2-6', team1: 'Braunschweig', team2: 'Osnabrück' },
-    { id: 'b2-7', team1: 'Elversberg', team2: 'Wehen Wiesbaden' },
-    { id: 'b2-8', team1: 'Ingolstadt', team2: 'Dresden' },
-    { id: 'b2-9', team1: 'Mannheim', team2: 'Essen' },
+    { id: 'b2-1', team1: 'Schalke', team2: 'Hertha' },
+    { id: 'b2-2', team1: 'Darmstadt 98', team2: 'Bochum' },
+    { id: 'b2-3', team1: 'SC Paderborn', team2: 'Holstein Kiel' },
+    { id: 'b2-4', team1: 'KSC', team2: 'Preußen Münster' },
+    { id: 'b2-5', team1: 'Elversberg', team2: 'FCN' },
+    { id: 'b2-6', team1: 'Arminia', team2: 'Düsseldorf' },
+    { id: 'b2-7', team1: '1. FC Magdeburg', team2: 'BTSV' },
+    { id: 'b2-8', team1: 'Greuther Fürth', team2: 'Dynamo' },
+    { id: 'b2-9', team1: 'Hannover 96', team2: 'FCK' },
 ];
 
 // Modal-Komponente für "Wetten geschlossen"
