@@ -5,43 +5,42 @@ const teamLogos = {
    // 1. Bundesliga Teams (hypothetisch 2025/2026)
     'Augsburg': process.env.PUBLIC_URL + '/Logos/augsburg.png',
     'Bayern': process.env.PUBLIC_URL + '/Logos/bayern.png',
-    'Bochum': process.env.PUBLIC_URL + '/Logos/bochum.png',
     'Dortmund': process.env.PUBLIC_URL + '/Logos/dortmund.png',
-    'Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
+    'Eintracht Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
     'Freiburg': process.env.PUBLIC_URL + '/Logos/freiburg.png',
-    'Gladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
+    'Mönchengladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
     'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
     'Hoffenheim': process.env.PUBLIC_URL + '/Logos/hoffenheim.png',
     'Köln': process.env.PUBLIC_URL + '/Logos/koeln.png',
-    'Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
+    'RB Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
     'Leverkusen': process.env.PUBLIC_URL + '/Logos/leverkusen.png',
     'Mainz': process.env.PUBLIC_URL + '/Logos/mainz.png',
-    'Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
+    'VfB Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
     'Union Berlin': process.env.PUBLIC_URL + '/Logos/union.png',
-    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png',
+    'Werder Bremen': process.env.PUBLIC_URL + '/Logos/werder.png',
     'Wolfsburg': process.env.PUBLIC_URL + '/Logos/wolfsburg.png',
-    'St. Pauli': process.env.PUBLIC_URL + '/Logos/st-pauli.png', // Aufsteiger
-    'Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png', // Aufsteiger
+    'St. Pauli': process.env.PUBLIC_URL + '/Logos/pauli.png', // Aufsteiger
+    'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
 
     // 2. Bundesliga Teams (hypothetisch 2025/2026)
     'Braunschweig': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
-    'D.Dorf': process.env.PUBLIC_URL + '/Logos/ddorf.png', // Fort.
-    'Darmstadt': process.env.PUBLIC_URL + '/Logos/darmstadt.png', // Absteiger
-    'Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png', // Aufsteiger 3. Liga
-    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/duesseldorf.png', // Korrigiert: Schlüssel ist 'Düsseldorf'
+    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/ddorf.png', // Fort.
+    'Darmstadt 98': process.env.PUBLIC_URL + '/Logos/darmstadt.png', // Absteiger
+    'Dynamo Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png', // Aufsteiger 3. Liga
     'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
-    'fck': process.env.PUBLIC_URL + '/Logos/fck.png', // Fort.
-    'Hannover': process.env.PUBLIC_URL + '/Logos/hannover.png',
+    'Hannover 96': process.env.PUBLIC_URL + '/Logos/hannover.png',
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
-    'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
-    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/karlsruhe.png',
-    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/kaiserslautern.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
-    'Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
-    'Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
-    'Regensburg': process.env.PUBLIC_URL + '/Logos/regensburg.png', // Aufsteiger
-    'Ulm': process.env.PUBLIC_URL + '/Logos/ulm.png', // Aufsteiger
-    'Münster': process.env.PUBLIC_URL + '/Logos/muenster.png', // Aufsteiger 3. Liga (Beispiel)
-    'Wiesbaden': process.env.PUBLIC_URL + '/Logos/wehen-wiesbaden.png', // Absteiger
+    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/ksc.png',
+    '1 FC Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
+    'FC Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
+    'SC Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
+    'Preußen Münster': process.env.PUBLIC_URL + '/Logos/muenster.png', // Aufsteiger 3. Liga (Beispiel)
+    'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
+    'Bochum': process.env.PUBLIC_URL + '/Logos/bochum.png',
+    'Holstein Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png', // Aufsteiger
+    'Arminia Bielefeld': process.env.PUBLIC_URL + '/Logos/arminia.png', 
+    '1. FC Magdeburg': process.env.PUBLIC_URL + '/Logos/magdeburg.png',
+    'Greuther Fürth': process.env.PUBLIC_URL + '/Logos/fuerth.png',
 };
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
