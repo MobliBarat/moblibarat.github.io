@@ -10,10 +10,10 @@ const teamLogos = {
     'Dortmund': process.env.PUBLIC_URL + '/Logos/dortmund.png',
     'Eintracht Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
     'Freiburg': process.env.PUBLIC_URL + '/Logos/freiburg.png',
-    'Greuther Fürth': process.env.PUBLIC_URL + '/Logos/fürth.png', // Hinzugefügt
+    'Greuther Fürth': process.env.PUBLIC_URL + '/Logos/fuerth.png', // Hinzugefügt
     'Mönchengladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
     'Hoffenheim': process.env.PUBLIC_URL + '/Logos/hoffenheim.png',
-    'Köln': process.env.PUBLIC_URL + '/Logos/köln.png',
+    'Köln': process.env.PUBLIC_URL + '/Logos/koeln.png',
     'RB Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
     'Leverkusen': process.env.PUBLIC_URL + '/Logos/leverkusen.png',
     'Mainz': process.env.PUBLIC_URL + '/Logos/mainz.png',
@@ -25,7 +25,7 @@ const teamLogos = {
     'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
     'Düsseldorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
     'Hannover 96': process.env.PUBLIC_URL + '/Logos/hannover.png',
-    'FCN': process.env.PUBLIC_URL + '/Logos/nürnberg.png',
+    'FCN': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
     'FCK': process.env.PUBLIC_URL + '/Logos/fck.png',
     'SC Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
     'KSC': process.env.PUBLIC_URL + '/Logos/ksc.png',
@@ -37,7 +37,7 @@ const teamLogos = {
     'Darmstadt 98': process.env.PUBLIC_URL + '/Logos/darmstadt.png', // Hinzugefügt
     'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
     '1 FC Magdeburg': process.env.PUBLIC_URL + '/Logos/magdeburg.png',
-    'Preußen Münster': process.env.PUBLIC_URL + '/Logos/münster.png',
+    'Preußen Münster': process.env.PUBLIC_URL + '/Logos/muenster.png',
     'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
 };
 
