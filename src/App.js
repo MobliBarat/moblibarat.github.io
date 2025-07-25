@@ -31,7 +31,7 @@ const teamLogos = {
     'Hannover 96': process.env.PUBLIC_URL + '/Logos/hannover.png',
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
     'Karlsruhe': process.env.PUBLIC_URL + '/Logos/ksc.png',
-    '1 FC Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
+    '1. FC Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
     'FC Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
     'SC Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
     'Preußen Münster': process.env.PUBLIC_URL + '/Logos/muenster.png', // Aufsteiger 3. Liga (Beispiel)
@@ -61,12 +61,12 @@ const bundesliga2Games = [
     { id: 'b2-1', team1: 'Schalke', team2: 'Hertha' },
     { id: 'b2-2', team1: 'Darmstadt 98', team2: 'Bochum' },
     { id: 'b2-3', team1: 'SC Paderborn', team2: 'Holstein Kiel' },
-    { id: 'b2-4', team1: 'KSC', team2: 'Preußen Münster' },
-    { id: 'b2-5', team1: 'Elversberg', team2: 'FCN' },
-    { id: 'b2-6', team1: 'Arminia', team2: 'Düsseldorf' },
-    { id: 'b2-7', team1: '1. FC Magdeburg', team2: 'BTSV' },
-    { id: 'b2-8', team1: 'Greuther Fürth', team2: 'Dynamo' },
-    { id: 'b2-9', team1: 'Hannover 96', team2: 'FCK' },
+    { id: 'b2-4', team1: 'Karlsruhe', team2: 'Preußen Münster' },
+    { id: 'b2-5', team1: 'Elversberg', team2: 'FC Nürnberg' },
+    { id: 'b2-6', team1: 'Arminia Bielefeld', team2: 'Düsseldorf' },
+    { id: 'b2-7', team1: '1. FC Magdeburg', team2: 'Braunschweig' },
+    { id: 'b2-8', team1: 'Greuther Fürth', team2: 'Dynamo Dresden' },
+    { id: 'b2-9', team1: 'Hannover 96', team2: '1. FC Kaiserslautern' },
 ];
 
 // Modal-Komponente für "Wetten geschlossen"
