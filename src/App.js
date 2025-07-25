@@ -2,45 +2,46 @@ import React, { useState, useCallback } from 'react';
 
 // Objekt, das Teamnamen ihren Logo-URLs zuordnet
 const teamLogos = {
-    // 1. Bundesliga Teams (basierend auf deinen Dateinamen und korrigierten Schlüsseln)
+   // 1. Bundesliga Teams (hypothetisch 2025/2026)
     'Augsburg': process.env.PUBLIC_URL + '/Logos/augsburg.png',
     'Bayern': process.env.PUBLIC_URL + '/Logos/bayern.png',
-    'Bielefeld': process.env.PUBLIC_URL + '/Logos/bielefeld.png',
     'Bochum': process.env.PUBLIC_URL + '/Logos/bochum.png',
     'Dortmund': process.env.PUBLIC_URL + '/Logos/dortmund.png',
     'Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
     'Freiburg': process.env.PUBLIC_URL + '/Logos/freiburg.png',
-    'Fürth': process.env.PUBLIC_URL + '/Logos/fuerth.png',
     'Gladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
+    'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
     'Hoffenheim': process.env.PUBLIC_URL + '/Logos/hoffenheim.png',
     'Köln': process.env.PUBLIC_URL + '/Logos/koeln.png',
     'Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
     'Leverkusen': process.env.PUBLIC_URL + '/Logos/leverkusen.png',
     'Mainz': process.env.PUBLIC_URL + '/Logos/mainz.png',
-    'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
     'Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
     'Union Berlin': process.env.PUBLIC_URL + '/Logos/union.png',
-    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png', // <-- Schlüssel ist 'Werder'
+    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png',
     'Wolfsburg': process.env.PUBLIC_URL + '/Logos/wolfsburg.png',
-    'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
-    'Darmstadt': process.env.PUBLIC_URL + '/Logos/darmstadt.png',
-    'D.Dorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
-    'fck': process.env.PUBLIC_URL + '/Logos/fck.png',
+    'St. Pauli': process.env.PUBLIC_URL + '/Logos/st-pauli.png', // Aufsteiger
+    'Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png', // Aufsteiger
 
-    // 2. Bundesliga Teams (basierend auf deinen Dateinamen)
+    // 2. Bundesliga Teams (hypothetisch 2025/2026)
+    'Braunschweig': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
+    'D.Dorf': process.env.PUBLIC_URL + '/Logos/ddorf.png', // Fort.
+    'Darmstadt': process.env.PUBLIC_URL + '/Logos/darmstadt.png', // Absteiger
+    'Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png', // Aufsteiger 3. Liga
+    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/duesseldorf.png', // Korrigiert: Schlüssel ist 'Düsseldorf'
+    'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
+    'fck': process.env.PUBLIC_URL + '/Logos/fck.png', // Fort.
+    'Hannover': process.env.PUBLIC_URL + '/Logos/hannover.png',
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
     'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
-    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
-    'Hannover': process.env.PUBLIC_URL + '/Logos/hannover.png',
+    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/karlsruhe.png',
+    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/kaiserslautern.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
     'Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
-    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png',
     'Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
-    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/ksc.png',
-    'Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png',
-    'St. Pauli': process.env.PUBLIC_URL + '/Logos/pauli.png',
-    'Braunschweig': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
-    'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
-    'Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png',
+    'Regensburg': process.env.PUBLIC_URL + '/Logos/regensburg.png', // Aufsteiger
+    'Ulm': process.env.PUBLIC_URL + '/Logos/ulm.png', // Aufsteiger
+    'Münster': process.env.PUBLIC_URL + '/Logos/muenster.png', // Aufsteiger 3. Liga (Beispiel)
+    'Wiesbaden': process.env.PUBLIC_URL + '/Logos/wehen-wiesbaden.png', // Absteiger
 };
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
