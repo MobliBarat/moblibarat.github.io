@@ -20,7 +20,7 @@ const teamLogos = {
     'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
     'Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
     'Union Berlin': process.env.PUBLIC_URL + '/Logos/union.png',
-    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png', // <-- HIER IST DIE KORREKTUR: Schlüssel ist 'Werder'
+    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png', // <-- Schlüssel ist 'Werder'
     'Wolfsburg': process.env.PUBLIC_URL + '/Logos/wolfsburg.png',
     'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
     'Darmstadt': process.env.PUBLIC_URL + '/Logos/darmstadt.png',
@@ -52,7 +52,7 @@ const teamLogos = {
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
 const bundesliga1Games = [
-    { id: 'b1-1', team1: 'Bayern', team2: 'Werder' }, // <-- HIER IST DIE KORREKTUR: team2 ist 'Werder'
+    { id: 'b1-1', team1: 'Bayern', team2: 'Werder' }, // team2 ist 'Werder'
     { id: 'b1-2', team1: 'Dortmund', team2: 'Schalke' },
     { id: 'b1-3', team1: 'Leipzig', team2: 'Union Berlin' },
     { id: 'b1-4', team1: 'Leverkusen', team2: 'Frankfurt' },
@@ -275,7 +275,11 @@ const App = () => {
                                         src={teamLogos[game.team1]}
                                         alt={`${game.team1} Logo`}
                                         className="w-8 h-8 rounded-full mr-2"
-                                        onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/60x60/666666/FFFFFF?text=?" }}
+                                        onError={(e) => {
+                                            e.target.onerror = null; // Verhindert Endlosschleife bei Fehler
+                                            e.target.src="https://placehold.co/60x60/666666/FFFFFF?text=?" // Fallback-Bild
+                                            console.error(`Fehler beim Laden von Logo für Team ${game.team1}. Angeforderte URL: ${teamLogos[game.team1]}`);
+                                        }}
                                     />
                                     <span className="text-base font-semibold">{game.team1}</span>
                                     <span className="text-gray-400 mx-2"> vs </span>
@@ -285,7 +289,11 @@ const App = () => {
                                         src={teamLogos[game.team2]}
                                         alt={`${game.team2} Logo`}
                                         className="w-8 h-8 rounded-full ml-2"
-                                        onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/60x60/666666/FFFFFF?text=?" }}
+                                        onError={(e) => {
+                                            e.target.onerror = null; // Verhindert Endlosschleife bei Fehler
+                                            e.target.src="https://placehold.co/60x60/666666/FFFFFF?text=?" // Fallback-Bild
+                                            console.error(`Fehler beim Laden von Logo für Team ${game.team2}. Angeforderte URL: ${teamLogos[game.team2]}`);
+                                        }}
                                     />
                                 </div>
                                 {/* Inputfeld */}
