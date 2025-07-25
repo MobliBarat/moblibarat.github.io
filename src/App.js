@@ -30,24 +30,17 @@ const teamLogos = {
     // 2. Bundesliga Teams (basierend auf deinen Dateinamen)
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
     'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
-    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/duesseldorf.png',
+    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
     'Hannover': process.env.PUBLIC_URL + '/Logos/hannover.png',
     'Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
-    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/kaiserslautern.png',
+    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png',
     'Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
-    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/karlsruhe.png',
+    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/ksc.png',
     'Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png',
-    'St. Pauli': process.env.PUBLIC_URL + '/Logos/st-pauli.png',
+    'St. Pauli': process.env.PUBLIC_URL + '/Logos/pauli.png',
     'Braunschweig': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
-    'Osnabrück': process.env.PUBLIC_URL + '/Logos/osnabrueck.png',
     'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
-    'Wehen Wiesbaden': process.env.PUBLIC_URL + '/Logos/wehen-wiesbaden.png',
-    'Ingolstadt': process.env.PUBLIC_URL + '/Logos/ingolstadt.png',
     'Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png',
-    'Mannheim': process.env.PUBLIC_URL + '/Logos/mannheim.png',
-    'Essen': process.env.PUBLIC_URL + '/Logos/essen.png',
-    'Ulm': process.env.PUBLIC_URL + '/Logos/ulm.png',
-    'Regensburg': process.env.PUBLIC_URL + '/Logos/regensburg.png',
 };
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
