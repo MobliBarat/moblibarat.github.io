@@ -30,7 +30,7 @@ const teamLogos = {
     'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
     'Hannover 96': process.env.PUBLIC_URL + '/Logos/hannover.png',
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
-    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/ksc.png',
+    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/karlsruhe.png',
     '1. FC Kaiserslautern': process.env.PUBLIC_URL + '/Logos/fck.png', // Korrigiert: Schlüssel ist 'Kaiserslautern'
     'FC Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
     'SC Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
