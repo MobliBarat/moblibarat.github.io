@@ -103,6 +103,7 @@ const App = () => {
     // NEUER STATE FÜR DAS "WETTEN GESCHLOSSEN" MODAL
     // Setze diesen Wert auf TRUE, um das Pop-up anzuzeigen und Wetten zu schließen.
     // Setze ihn auf FALSE, um das Pop-up auszublenden und Wetten zu erlauben.
+    // eslint-disable-next-line no-unused-vars
     const [showBettingClosedModal, setShowBettingClosedModal] = useState(false); // <-- HIER KANNST DU ES STEUERN
 
     // Funktion zum Senden der Daten an den Server
