@@ -281,7 +281,7 @@ const App = () => {
                                     <img
                                         src={teamLogos[game.team2]}
                                         alt={`${game.team2} Logo`}
-                                        className="w-8 h-8 rounded-full ml-2"
+                                        className="w-12  h-12 rounded-full ml-2"
                                         onError={(e) => {
                                             e.target.onerror = null; // Verhindert Endlosschleife bei Fehler
                                             e.target.src="https://placehold.co/60x60/666666/FFFFFF?text=?" // Fallback-Bild
