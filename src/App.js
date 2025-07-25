@@ -2,48 +2,57 @@ import React, { useState, useCallback } from 'react';
 
 // Objekt, das Teamnamen ihren Logo-URLs zuordnet
 const teamLogos = {
-    // 1. Bundesliga Teams (basierend auf deinen Dateinamen)
+    // 1. Bundesliga Teams (basierend auf deinen Dateinamen und korrigierten Schlüsseln)
     'Augsburg': process.env.PUBLIC_URL + '/Logos/augsburg.png',
     'Bayern': process.env.PUBLIC_URL + '/Logos/bayern.png',
-    'Arminia': process.env.PUBLIC_URL + '/Logos/bielefeld.png', // Hinzugefügt
+    'Bielefeld': process.env.PUBLIC_URL + '/Logos/bielefeld.png',
     'Bochum': process.env.PUBLIC_URL + '/Logos/bochum.png',
     'Dortmund': process.env.PUBLIC_URL + '/Logos/dortmund.png',
-    'Eintracht Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
+    'Frankfurt': process.env.PUBLIC_URL + '/Logos/frankfurt.png',
     'Freiburg': process.env.PUBLIC_URL + '/Logos/freiburg.png',
-    'Greuther Fürth': process.env.PUBLIC_URL + '/Logos/fuerth.png', // Hinzugefügt
-    'Mönchengladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
+    'Fürth': process.env.PUBLIC_URL + '/Logos/fuerth.png',
+    'Gladbach': process.env.PUBLIC_URL + '/Logos/gladbach.png',
     'Hoffenheim': process.env.PUBLIC_URL + '/Logos/hoffenheim.png',
     'Köln': process.env.PUBLIC_URL + '/Logos/koeln.png',
-    'RB Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
+    'Leipzig': process.env.PUBLIC_URL + '/Logos/leipzig.png',
     'Leverkusen': process.env.PUBLIC_URL + '/Logos/leverkusen.png',
     'Mainz': process.env.PUBLIC_URL + '/Logos/mainz.png',
-    'VfB Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
+    'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
+    'Stuttgart': process.env.PUBLIC_URL + '/Logos/stuttgart.png',
     'Union Berlin': process.env.PUBLIC_URL + '/Logos/union.png',
-    'Werder Bremen': process.env.PUBLIC_URL + '/Logos/werder.png',
+    'Werder': process.env.PUBLIC_URL + '/Logos/werder.png', // <-- HIER IST DIE KORREKTUR: Schlüssel ist 'Werder'
     'Wolfsburg': process.env.PUBLIC_URL + '/Logos/wolfsburg.png',
+    'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
+    'Darmstadt': process.env.PUBLIC_URL + '/Logos/darmstadt.png',
+    'D.Dorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
+    'fck': process.env.PUBLIC_URL + '/Logos/fck.png',
+
+    // 2. Bundesliga Teams (basierend auf deinen Dateinamen)
     'Hertha': process.env.PUBLIC_URL + '/Logos/hertha.png',
     'HSV': process.env.PUBLIC_URL + '/Logos/hsv.png',
-    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/ddorf.png',
-    'Hannover 96': process.env.PUBLIC_URL + '/Logos/hannover.png',
-    'FCN': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
-    'FCK': process.env.PUBLIC_URL + '/Logos/fck.png',
-    'SC Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
-    'KSC': process.env.PUBLIC_URL + '/Logos/ksc.png',
-    'Holstein Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png',
-    'St. Pauli': process.env.PUBLIC_URL + '/Logos/pauli.png',
-    'BTSV': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
+    'Düsseldorf': process.env.PUBLIC_URL + '/Logos/duesseldorf.png',
+    'Hannover': process.env.PUBLIC_URL + '/Logos/hannover.png',
+    'Nürnberg': process.env.PUBLIC_URL + '/Logos/nuernberg.png',
+    'Kaiserslautern': process.env.PUBLIC_URL + '/Logos/kaiserslautern.png',
+    'Paderborn': process.env.PUBLIC_URL + '/Logos/paderborn.png',
+    'Karlsruhe': process.env.PUBLIC_URL + '/Logos/karlsruhe.png',
+    'Kiel': process.env.PUBLIC_URL + '/Logos/kiel.png',
+    'St. Pauli': process.env.PUBLIC_URL + '/Logos/st-pauli.png',
+    'Braunschweig': process.env.PUBLIC_URL + '/Logos/braunschweig.png',
+    'Osnabrück': process.env.PUBLIC_URL + '/Logos/osnabrueck.png',
     'Elversberg': process.env.PUBLIC_URL + '/Logos/elversberg.png',
-    'Dynamo': process.env.PUBLIC_URL + '/Logos/dresden.png',
-    'Darmstadt 98': process.env.PUBLIC_URL + '/Logos/darmstadt.png', // Hinzugefügt
-    'Heidenheim': process.env.PUBLIC_URL + '/Logos/heidenheim.png',
-    '1 FC Magdeburg': process.env.PUBLIC_URL + '/Logos/magdeburg.png',
-    'Preußen Münster': process.env.PUBLIC_URL + '/Logos/muenster.png',
-    'Schalke': process.env.PUBLIC_URL + '/Logos/schalke.png',
+    'Wehen Wiesbaden': process.env.PUBLIC_URL + '/Logos/wehen-wiesbaden.png',
+    'Ingolstadt': process.env.PUBLIC_URL + '/Logos/ingolstadt.png',
+    'Dresden': process.env.PUBLIC_URL + '/Logos/dresden.png',
+    'Mannheim': process.env.PUBLIC_URL + '/Logos/mannheim.png',
+    'Essen': process.env.PUBLIC_URL + '/Logos/essen.png',
+    'Ulm': process.env.PUBLIC_URL + '/Logos/ulm.png',
+    'Regensburg': process.env.PUBLIC_URL + '/Logos/regensburg.png',
 };
 
 // Beispielhafte Liste von 1. Bundesliga Spielen (9 Spiele, 18 Teams)
 const bundesliga1Games = [
-    { id: 'b1-1', team1: 'Bayern', team2: 'Werder' },
+    { id: 'b1-1', team1: 'Bayern', team2: 'Werder' }, // <-- HIER IST DIE KORREKTUR: team2 ist 'Werder'
     { id: 'b1-2', team1: 'Dortmund', team2: 'Schalke' },
     { id: 'b1-3', team1: 'Leipzig', team2: 'Union Berlin' },
     { id: 'b1-4', team1: 'Leverkusen', team2: 'Frankfurt' },
@@ -101,8 +110,6 @@ const App = () => {
     const [currentLeagueGames, setCurrentLeagueGames] = useState([]);
 
     // NEUER STATE FÜR DAS "WETTEN GESCHLOSSEN" MODAL
-    // Setze diesen Wert auf TRUE, um das Pop-up anzuzeigen und Wetten zu schließen.
-    // Setze ihn auf FALSE, um das Pop-up auszublenden und Wetten zu erlauben.
     // eslint-disable-next-line no-unused-vars
     const [showBettingClosedModal, setShowBettingClosedModal] = useState(false); // <-- HIER KANNST DU ES STEUERN
 
