@@ -153,6 +153,7 @@ const App = () => {
     const [selectedGame, setSelectedGame] = useState(null);
 
     // NEUER STATE FÜR DAS "WETTEN GESCHLOSSEN" MODAL
+    // eslint-disable-next-line no-unused-vars
     const [showBettingClosedModal, setShowBettingClosedModal] = useState(false); // <-- HIER KANNST DU ES STEUERN
 
     // Sichtbarkeit des Ranglisten-Modals
@@ -172,7 +173,7 @@ const App = () => {
         }));
     }, []);
 
-    const [leaderboardData, setLeaderboardData] = useState(initialLeaderboardData);
+    const [leaderboardData] = useState(initialLeaderboardData); // setLeaderboardData entfernt, da es nicht verwendet wird
 
 
     // Funktion zum Senden der Daten an den Server
